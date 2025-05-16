@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import (
    QApplication, QMainWindow, QMessageBox, 
    QDialog, QFileDialog, QLabel
-   )
+)
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtGui import QClipboard
 from PyQt6 import uic
