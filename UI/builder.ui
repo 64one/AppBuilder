@@ -1,0 +1,2305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>551</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>580</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>AppBuilder</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/Images/icon.png</normaloff>:/Images/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	color: #333; /* Dark Gray Text */
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background-color: #f9f9f9;
+	selection-color: rgb(255, 255, 255);
+	selection-background-color: #3498db;
+}
+
+QMenuBar {
+    background-color: rgb(255, 255, 255);
+    color: #333;
+}
+
+QMenu {
+    background-color: rgb(255, 255, 255);
+	color: #333;
+    border: 1px solid #3498db;
+	border-radius: 4px;
+}
+
+QMenu::item {
+	background-color: rgb(255, 255, 255);
+    color: #333;
+	selection-color: rgb(255, 255, 255);
+	selection-background-color: #3498db;
+}
+
+QMenu::separator {
+	background-color: #3498db;
+	height: 1px;
+}
+
+QMenu::item:disabled {
+	background-color: rgb(255, 255, 255);
+    color: #B0B0B0; /* Light gray color for disabled items */
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">/* TabWidget */
+QTabWidget::pane {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+QTabBar::tab {
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+    padding: 2px 10px;
+    margin-right: 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+QTabBar::tab:selected {
+    background: #ffffff;
+    border-bottom: 2px solid #3498db;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+
+QTabBar::tab:hover {
+    background: #e0e0e0;
+}</string>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="homeTab">
+       <attribute name="title">
+        <string>Home</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QScrollArea" name="homeScrollArea">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+    background: #f9f9f9;
+    border: none;
+    border-radius: 8px;
+}
+
+QScrollArea QWidget {
+    background: transparent;
+}
+
+QScrollBar:vertical {
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #bbb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #999;
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #f0f0f0;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #bbb;
+    border-radius: 5px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #999;
+}
+
+QScrollBar::add-line:horizontal, 
+QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 0px;
+}</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="homeScrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>511</width>
+             <height>423</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="homeScrollLayout">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="scriptLayout">
+              <item>
+               <widget class="QPushButton" name="scriptButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="statusTip">
+                 <string>Select a python script</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* PushButton */
+QPushButton {
+    background: #fff;
+    color: #585858;
+    border: 1px solid #585858;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background: #bababa;
+    border: 1px solid #585858;
+	color: #fff;
+}
+
+QPushButton:pressed {
+    background: #585858;
+    border: 1px solid #585858;
+	color: #fff;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Select Script</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="scriptLineEdit">
+                <property name="statusTip">
+                 <string>Path to the Python script</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* LineEdit */
+QLineEdit {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+QLineEdit:hover {
+    border: 1px solid #3498db;
+}
+
+QLineEdit:focus {
+    border: 1px solid #2980b9;
+    background: white;
+}</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="placeholderText">
+                 <string>path to .py or .pyw file</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="clearScriptPathButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="statusTip">
+                 <string>Clear selected script</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/clear_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/clear_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/clear_clicked.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>25</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="iconLayout">
+              <item>
+               <widget class="QPushButton" name="iconButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="statusTip">
+                 <string>Select icon to add to exe</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* PushButton */
+QPushButton {
+    background: #fff;
+    color: #585858;
+    border: 1px solid #585858;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background: #bababa;
+    border: 1px solid #585858;
+	color: #fff;
+}
+
+QPushButton:pressed {
+    background: #585858;
+    border: 1px solid #585858;
+	color: #fff;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Select Icon</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="iconLineEdit">
+                <property name="statusTip">
+                 <string>Path to an icon</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* LineEdit */
+QLineEdit {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+QLineEdit:hover {
+    border: 1px solid #3498db;
+}
+
+QLineEdit:focus {
+    border: 1px solid #2980b9;
+    background: white;
+}</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="placeholderText">
+                 <string>path to .ico file</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="clearIconPathButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="statusTip">
+                 <string>Clear selected icon</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/clear_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/clear_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/clear_clicked.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>25</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="outputPathLayout">
+              <item>
+               <widget class="QPushButton" name="outputPathButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="statusTip">
+                 <string>Path to save the exe</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* PushButton */
+QPushButton {
+    background: #fff;
+    color: #585858;
+    border: 1px solid #585858;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background: #bababa;
+    border: 1px solid #585858;
+	color: #fff;
+}
+
+QPushButton:pressed {
+    background: #585858;
+    border: 1px solid #585858;
+	color: #fff;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Output Path</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="outputPathLineEdit">
+                <property name="statusTip">
+                 <string>Path to save the exe</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* LineEdit */
+QLineEdit {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+QLineEdit:hover {
+    border: 1px solid #3498db;
+}
+
+QLineEdit:focus {
+    border: 1px solid #2980b9;
+    background: white;
+}</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+                <property name="placeholderText">
+                 <string>default: scriptpath/dist</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="clearOutputPathButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="statusTip">
+                 <string>Clear selected output path</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/clear_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/clear_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/clear_clicked.png);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>25</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="appNameLayout">
+              <item>
+               <widget class="QLabel" name="appNameLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Application Name:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="appNameLineEdit">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>220</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="statusTip">
+                 <string>Type the name of the exe</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* LineEdit */
+QLineEdit {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+QLineEdit:hover {
+    border: 1px solid #3498db;
+}
+
+QLineEdit:focus {
+    border: 1px solid #2980b9;
+    background: white;
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="placeholderText">
+                 <string>Type here...</string>
+                </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QGroupBox" name="consoleGroupBox">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>75</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="statusTip">
+                 <string>Open a console window for standard i/o</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* QGroupBox */
+QGroupBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* QGroupBox Title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    color: #585858;
+	font-weight: bold;
+    padding: 2px 8px;
+	border: 1px solid #bababa;
+    border-radius: 4px;
+    position: left;
+    top: 5px;
+	left: 0px;
+}
+</string>
+                </property>
+                <property name="title">
+                 <string>Show Console Window</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QRadioButton" name="yesConsoleButton">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">/* RadioButton */
+QRadioButton {
+    font-size: 14px;
+    color: #333;
+    spacing: 6px;
+}
+
+QRadioButton::indicator:unchecked {
+	image: url(:/Images/radiobutton_off.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:unchecked:hover {
+	image: url(:/Images/radiobutton_off_hover.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked {
+	image: url(:/Images/radiobutton_on.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked:hover {
+	image: url(:/Images/radiobutton_on_hover.png);
+	width: 20px;
+	height: 20px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Yes</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="noConsoleButton">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">/* RadioButton */
+QRadioButton {
+    font-size: 14px;
+    color: #333;
+    spacing: 6px;
+}
+
+QRadioButton::indicator:unchecked {
+	image: url(:/Images/radiobutton_off.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:unchecked:hover {
+	image: url(:/Images/radiobutton_off_hover.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked {
+	image: url(:/Images/radiobutton_on.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked:hover {
+	image: url(:/Images/radiobutton_on_hover.png);
+	width: 20px;
+	height: 20px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>No</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="oneFileGroupBox">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>75</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="statusTip">
+                 <string>Create a one-file bundled executable</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* QGroupBox */
+QGroupBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* QGroupBox Title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    color: #585858;
+	font-weight: bold;
+    padding: 2px 8px;
+	border: 1px solid #bababa;
+    border-radius: 4px;
+    position: left;
+    top: 5px;
+	left: 0px;
+}
+</string>
+                </property>
+                <property name="title">
+                 <string>Create One File</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QRadioButton" name="yesOneFileButton">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">/* RadioButton */
+QRadioButton {
+    font-size: 14px;
+    color: #333;
+    spacing: 6px;
+}
+
+QRadioButton::indicator:unchecked {
+	image: url(:/Images/radiobutton_off.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:unchecked:hover {
+	image: url(:/Images/radiobutton_off_hover.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked {
+	image: url(:/Images/radiobutton_on.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked:hover {
+	image: url(:/Images/radiobutton_on_hover.png);
+	width: 20px;
+	height: 20px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Yes</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="noOneFileButton">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">/* RadioButton */
+QRadioButton {
+    font-size: 14px;
+    color: #333;
+    spacing: 6px;
+}
+
+QRadioButton::indicator:unchecked {
+	image: url(:/Images/radiobutton_off.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:unchecked:hover {
+	image: url(:/Images/radiobutton_off_hover.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked {
+	image: url(:/Images/radiobutton_on.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked:hover {
+	image: url(:/Images/radiobutton_on_hover.png);
+	width: 20px;
+	height: 20px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>No</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="tempFileGroupBox">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>75</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="statusTip">
+                 <string>Clean PyInstaller cache and remove temporary files before building</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">/* QGroupBox */
+QGroupBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* QGroupBox Title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    color: #585858;
+	font-weight: bold;
+    padding: 2px 8px;
+	border: 1px solid #bababa;
+    border-radius: 4px;
+    position: left;
+    top: 5px;
+	left: 0px;
+}
+</string>
+                </property>
+                <property name="title">
+                 <string>Clear Temp Files</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <item>
+                  <widget class="QRadioButton" name="yesClearTempButton">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">/* RadioButton */
+QRadioButton {
+    font-size: 14px;
+    color: #333;
+    spacing: 6px;
+}
+
+QRadioButton::indicator:unchecked {
+	image: url(:/Images/radiobutton_off.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:unchecked:hover {
+	image: url(:/Images/radiobutton_off_hover.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked {
+	image: url(:/Images/radiobutton_on.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked:hover {
+	image: url(:/Images/radiobutton_on_hover.png);
+	width: 20px;
+	height: 20px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Yes</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="noClearTempButton">
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">/* RadioButton */
+QRadioButton {
+    font-size: 14px;
+    color: #333;
+    spacing: 6px;
+}
+
+QRadioButton::indicator:unchecked {
+	image: url(:/Images/radiobutton_off.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:unchecked:hover {
+	image: url(:/Images/radiobutton_off_hover.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked {
+	image: url(:/Images/radiobutton_on.png);
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked:hover {
+	image: url(:/Images/radiobutton_on_hover.png);
+	width: 20px;
+	height: 20px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>No</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="commandGroupBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>220</width>
+                <height>130</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">/* QGroupBox */
+QGroupBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* QGroupBox Title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    color: #585858;
+	font-weight: bold;
+    padding: 2px 8px;
+	border: 1px solid #bababa;
+    border-radius: 4px;
+    position: left;
+    top: 5px;
+	left: 0px;
+}
+</string>
+              </property>
+              <property name="title">
+               <string>Command</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>2</number>
+               </property>
+               <property name="rightMargin">
+                <number>2</number>
+               </property>
+               <item>
+                <widget class="QTextEdit" name="commandTextEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="statusTip">
+                  <string>pyinstaller command</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">/* TextEdit */
+QTextEdit {
+    border: none;
+    padding: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* QTextEdit ScrollBar - Vertical */
+QTextEdit QScrollBar:vertical {
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QTextEdit QScrollBar::handle:vertical {
+    background: #bbb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QTextEdit QScrollBar::handle:vertical:hover {
+    background: #999;
+}
+
+QTextEdit QScrollBar::add-line:vertical,
+QTextEdit QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}
+
+/* QTextEdit ScrollBar - Horizontal */
+QTextEdit QScrollBar:horizontal {
+    background: #f0f0f0;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QTextEdit QScrollBar::handle:horizontal {
+    background: #bbb;
+    border-radius: 5px;
+    min-width: 20px;
+}
+
+QTextEdit QScrollBar::handle:horizontal:hover {
+    background: #999;
+}
+
+QTextEdit QScrollBar::add-line:horizontal,
+QTextEdit QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 0px;
+}
+</string>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="acceptRichText">
+                  <bool>false</bool>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Command will appear here...</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <item>
+                  <widget class="QPushButton" name="injectCommandButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Inject command from clipoard</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/inject_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/inject_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/inject_clicked.png);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>24</width>
+                     <height>24</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="copyCommandButton">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Copy command</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/copy_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/copy_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/copy_clicked.png);
+}</string>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="bottomButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="resetButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="statusTip">
+             <string>Reset all settings to default</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* PushButton */
+QPushButton {
+    background: #3498db;
+    color: white;
+    border: 1px solid #2980b9;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background: #2980b9;
+    border: 1px solid #1c6ea4;
+}
+
+QPushButton:pressed {
+    background: #1c6ea4;
+    border: 1px solid #155a8a;
+}</string>
+            </property>
+            <property name="text">
+             <string>Reset</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buildButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="statusTip">
+             <string>Build exe using the command</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">/* PushButton */
+QPushButton {
+    background: #3498db;
+    color: white;
+    border: 1px solid #2980b9;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background: #2980b9;
+    border: 1px solid #1c6ea4;
+}
+
+QPushButton:pressed {
+    background: #1c6ea4;
+    border: 1px solid #155a8a;
+}</string>
+            </property>
+            <property name="text">
+             <string>Build</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="addFilesTab">
+       <attribute name="title">
+        <string>Add Files</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QScrollArea" name="addFilesScrollArea">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+    background: #f9f9f9;
+    border: none;
+    border-radius: 8px;
+}
+
+QScrollArea QWidget {
+    background: transparent;
+}
+
+QScrollBar:vertical {
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #bbb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #999;
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #f0f0f0;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #bbb;
+    border-radius: 5px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #999;
+}
+
+QScrollBar::add-line:horizontal, 
+QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 0px;
+}</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="addFilesScrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>511</width>
+             <height>462</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QGroupBox" name="filesGroupBox">
+              <property name="styleSheet">
+               <string notr="true">/* QGroupBox */
+QGroupBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* QGroupBox Title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    color: #585858;
+	font-weight: bold;
+    padding: 2px 8px;
+	border: 1px solid #bababa;
+    border-radius: 4px;
+    position: left;
+    top: 5px;
+	left: 0px;
+}
+</string>
+              </property>
+              <property name="title">
+               <string>Add Files</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <property name="spacing">
+                <number>5</number>
+               </property>
+               <property name="leftMargin">
+                <number>2</number>
+               </property>
+               <property name="rightMargin">
+                <number>2</number>
+               </property>
+               <item>
+                <widget class="QListWidget" name="filesListWidget">
+                 <property name="statusTip">
+                  <string>Filles that will be bundled with the exe</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">/* QListWidget */
+QListWidget {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+QListWidget::item {
+    padding: 6px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+QListWidget::item:selected {
+    background: #3498db;
+    color: white;
+    border-radius: 4px;
+}
+
+QListWidget::item:hover {
+    background: #e0e0e0;
+}
+
+/* QListWidget ScrollBar - Vertical */
+QListWidget QScrollBar:vertical {
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QListWidget QScrollBar::handle:vertical {
+    background: #bbb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QListWidget QScrollBar::handle:vertical:hover {
+    background: #999;
+}
+
+QListWidget QScrollBar::add-line:vertical,
+QListWidget QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}</string>
+                 </property>
+                 <property name="defaultDropAction">
+                  <enum>Qt::IgnoreAction</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="filesButtonsLayout">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="addFilesButton">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Add files</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/add_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/add_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/add_clicked.png);
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/Images/add.png</normaloff>:/Images/add.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="removeFilesButton">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Remove selected file</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/remove_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/remove_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/remove_clicked.png);
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/Images/remove.png</normaloff>:/Images/remove.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignTop">
+                  <widget class="QPushButton" name="addFileInfoButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Adding files help information</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/info_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/info_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/info_clicked.png);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>24</width>
+                     <height>24</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="folderGroupBox">
+              <property name="styleSheet">
+               <string notr="true">/* QGroupBox */
+QGroupBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* QGroupBox Title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    color: #585858;
+	font-weight: bold;
+    padding: 2px 8px;
+	border: 1px solid #bababa;
+    border-radius: 4px;
+    position: left;
+    top: 5px;
+	left: 0px;
+}
+</string>
+              </property>
+              <property name="title">
+               <string>Add Folders</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <property name="spacing">
+                <number>5</number>
+               </property>
+               <property name="leftMargin">
+                <number>2</number>
+               </property>
+               <property name="rightMargin">
+                <number>2</number>
+               </property>
+               <item>
+                <widget class="QListWidget" name="folderListWidget">
+                 <property name="statusTip">
+                  <string>Folders that will be bundled with the exe</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">/* QListWidget */
+QListWidget {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+QListWidget::item {
+    padding: 6px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+QListWidget::item:selected {
+    background: #3498db;
+    color: white;
+    border-radius: 4px;
+}
+
+QListWidget::item:hover {
+    background: #e0e0e0;
+}
+
+/* QListWidget ScrollBar - Vertical */
+QListWidget QScrollBar:vertical {
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QListWidget QScrollBar::handle:vertical {
+    background: #bbb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QListWidget QScrollBar::handle:vertical:hover {
+    background: #999;
+}
+
+QListWidget QScrollBar::add-line:vertical,
+QListWidget QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}</string>
+                 </property>
+                 <property name="defaultDropAction">
+                  <enum>Qt::IgnoreAction</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="folderButtonsLayout">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="addFolderButton">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Add a folder</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/add_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/add_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/add_clicked.png);
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/Images/add.png</normaloff>:/Images/add.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="removeFolderButton">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Remove selected folder</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/remove_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/remove_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/remove_clicked.png);
+}</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>:/Images/remove.png</normaloff>:/Images/remove.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignTop">
+                  <widget class="QPushButton" name="addFolderInfoButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>25</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
+                   <property name="statusTip">
+                    <string>Adding folders help information</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton {
+    border: none;
+	image: url(:/Images/info_normal.png);
+}
+
+QPushButton:hover {
+	image: url(:/Images/info_hover.png);
+}
+
+QPushButton:pressed {
+	image: url(:/Images/info_clicked.png);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>24</width>
+                     <height>24</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="progressTab">
+       <attribute name="title">
+        <string>Progress</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <widget class="QScrollArea" name="progressScrollArea">
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+    background: #f9f9f9;
+    border: none;
+    border-radius: 8px;
+}
+
+QScrollArea QWidget {
+    background: transparent;
+}
+
+QScrollBar:vertical {
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #bbb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #999;
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #f0f0f0;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #bbb;
+    border-radius: 5px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #999;
+}
+
+QScrollBar::add-line:horizontal, 
+QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 0px;
+}</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="progressScrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>511</width>
+             <height>462</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QGroupBox" name="outputGroupBox">
+              <property name="styleSheet">
+               <string notr="true">/* QGroupBox */
+QGroupBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* QGroupBox Title */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    color: #585858;
+	font-weight: bold;
+    padding: 2px 8px;
+	border: 1px solid #bababa;
+    border-radius: 4px;
+    position: left;
+    top: 5px;
+	left: 0px;
+}
+</string>
+              </property>
+              <property name="title">
+               <string>Output</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>5</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QTextEdit" name="outputTextEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                 <property name="statusTip">
+                  <string>Shows the output of pyinstaller</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">/* TextEdit */
+QTextEdit {
+    border: none;
+    padding: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* QTextEdit ScrollBar - Vertical */
+QTextEdit QScrollBar:vertical {
+    background: #f0f0f0;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QTextEdit QScrollBar::handle:vertical {
+    background: #bbb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QTextEdit QScrollBar::handle:vertical:hover {
+    background: #999;
+}
+
+QTextEdit QScrollBar::add-line:vertical,
+QTextEdit QScrollBar::sub-line:vertical {
+    background: none;
+    height: 0px;
+}
+
+/* QTextEdit ScrollBar - Horizontal */
+QTextEdit QScrollBar:horizontal {
+    background: #f0f0f0;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QTextEdit QScrollBar::handle:horizontal {
+    background: #bbb;
+    border-radius: 5px;
+    min-width: 20px;
+}
+
+QTextEdit QScrollBar::handle:horizontal:hover {
+    background: #999;
+}
+
+QTextEdit QScrollBar::add-line:horizontal,
+QTextEdit QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 0px;
+}
+</string>
+                 </property>
+                 <property name="lineWrapMode">
+                  <enum>QTextEdit::WidgetWidth</enum>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="textInteractionFlags">
+                  <set>Qt::TextSelectableByMouse</set>
+                 </property>
+                 <property name="placeholderText">
+                  <string>The progress of building the application will appear here...</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>551</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionInstallPyinstaller"/>
+    <addaction name="actionPyinstallerDocs"/>
+   </widget>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionInstallPyinstaller">
+   <property name="text">
+    <string>Install Pyinstaller</string>
+   </property>
+   <property name="statusTip">
+    <string>Install pyinstaller</string>
+   </property>
+  </action>
+  <action name="actionPyinstallerDocs">
+   <property name="text">
+    <string>Pyinstaller Docs</string>
+   </property>
+   <property name="statusTip">
+    <string>Open pyinstaller documentation website</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>clearScriptPathButton</sender>
+   <signal>clicked()</signal>
+   <receiver>scriptLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>497</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearOutputPathButton</sender>
+   <signal>clicked()</signal>
+   <receiver>outputPathLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>497</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearIconPathButton</sender>
+   <signal>clicked()</signal>
+   <receiver>iconLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>497</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearScriptPathButton</sender>
+   <signal>clicked()</signal>
+   <receiver>appNameLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>497</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>325</x>
+     <y>246</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
