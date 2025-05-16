@@ -30,8 +30,8 @@ A simple and intuitive GUI tool that wraps PyInstaller to easily convert Python 
 ### Option 1: From Source
 1. Clone this repository
 ```
-git clone https://github.com/yourusername/pyqt-app-builder.git
-cd pyqt-app-builder
+git clone https://github.com/64one/AppBuilder.git
+cd AppBuilder
 ```
 
 2. Install dependencies
