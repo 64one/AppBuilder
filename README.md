@@ -1,4 +1,4 @@
-# PyQt App Builder
+# Python App Builder
 
 A simple and intuitive GUI tool that wraps PyInstaller to easily convert Python scripts into standalone executables.
 
